@@ -15,7 +15,7 @@ const cache = {}
 const { get, put } = blockStore({ /*cache,*/ ipfs  })
 
 ```
-More details in the [store tests]()
+More usage details in the [store tests](https://github.com/dstanesc/ipfs-block-store/blob/e5a1198cbe30d53f45f4a9f1ae663df9e4f1ed21/src/__tests__/block-store.test.ts#L12)
 
 ## Build
 
