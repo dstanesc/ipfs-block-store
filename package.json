@@ -1,7 +1,7 @@
 {
   "name": "@dstanesc/ipfs-block-store",
   "description": "IPFS based block store for the @dstanesc/store-chunky-bytes persistence",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/dstanesc/ipfs-block-store",
   "repository": "https://github.com/dstanesc/ipfs-block-store",
   "license": "(Apache-2.0 AND MIT)",
@@ -22,16 +22,16 @@
   },
   "devDependencies": {
     "@dstanesc/store-chunky-bytes": "^0.0.7",
-    "@dstanesc/wasm-chunking-node-eval": "^0.1.0",
-    "ipfs-http-client": "^58.0.0",
-    "multiformats": "^9.8.1",
-    "uuid": "^8.3.2",
+    "@dstanesc/wasm-chunking-fastcdc-node": "^0.1.1",
     "@types/jest": "^28.1.5",
     "@types/uuid": "^8.3.4",
     "cross-env": "7.0.3",
+    "ipfs-http-client": "^58.0.0",
     "jest": "^28.1.2",
+    "multiformats": "^9.8.1",
     "npm-run-all": "4.1.5",
     "rimraf": "3.0.2",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "uuid": "^8.3.2"
   }
 }

@@ -2,7 +2,7 @@ import { CID } from 'multiformats/cid'
 import * as raw from 'multiformats/codecs/raw'
 import { sha256 } from 'multiformats/hashes/sha2'
 import { v4 as uuidV4, parse as uuidParse, stringify as uuidStringify } from 'uuid'
-import { compute_chunks_buzhash, compute_chunks_fastcdc } from "@dstanesc/wasm-chunking-node-eval"
+import { compute_chunks } from "@dstanesc/wasm-chunking-fastcdc-node"
 
 const codec = () => {
     const encode = async (bytes: Uint8Array): Promise<any> => {
@@ -16,7 +16,7 @@ const codec = () => {
     return { encode, decode }
 }
 
-const chunkerFactory = ({ fastAvgSize, buzMask }: { fastAvgSize?: number, buzMask?: number }) => {
+const chunkerFactory = ({ fastAvgSize }: { fastAvgSize?: number }) => {
     const FASTCDC_CHUNK_AVG_SIZE_DEFAULT = 32768
     const fastcdc = (buf: Uint8Array) => {
         if (fastAvgSize === undefined)
@@ -24,16 +24,9 @@ const chunkerFactory = ({ fastAvgSize, buzMask }: { fastAvgSize?: number, buzMas
         if (!Number.isInteger(fastAvgSize) || fastAvgSize <= 0) throw new Error('avgSize arg should be a positive integer')
         const minSize = Math.floor(fastAvgSize / 2)
         const maxSize = fastAvgSize * 2
-        return compute_chunks_fastcdc(buf, minSize, fastAvgSize, maxSize)
+        return compute_chunks(buf, minSize, fastAvgSize, maxSize)
     }
-    const BUZHASH_MASK_DEFAULT = 14 //0b11111111111111
-    const buzhash = (buf: Uint8Array) => {
-        if (buzMask === undefined)
-            buzMask = BUZHASH_MASK_DEFAULT
-        if (!Number.isInteger(buzMask) || buzMask <= 0) throw new Error('mask arg should be a positive integer')
-        return compute_chunks_buzhash(buf, buzMask)
-    }
-    return { fastcdc, buzhash }
+    return { fastcdc }
 }
 
 function byteArray(recordCount: number, recordSizeBytes: number): { buf: Uint8Array, records: any[] } {
