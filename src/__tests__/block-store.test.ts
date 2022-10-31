@@ -9,7 +9,7 @@ const RECORD_COUNT = 100
 const RECORD_SIZE_BYTES = 36
 
 
-  test("append root maintains original root offsets", async () => {
+  test("demo ipfs cas usage in the context of @dstanesc/store-chunky-bytes", async () => {
 
        // connect to local ipfs service
        const ipfs = ipfsApi({ url: '/ip4/192.168.1.231/tcp/5001' })

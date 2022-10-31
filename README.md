@@ -1,6 +1,13 @@
-# IPFS Based Block Store
+# IPFS Block Store
 
-IPFS based persistence layer for the [chunky bytes](https://www.npmjs.com/package/@dstanesc/store-chunky-bytes) module. 
+Simple content-addressable storage (CAS) based on [IPFS](https://ipfs.tech/).
+
+## API
+
+```ts
+put: (block: { cid: any, bytes: Uint8Array }) => Promise<void>
+get: (cid: any) => Promise<Uint8Array>
+```
 
 ## Usage
 
@@ -13,9 +20,8 @@ const cache = {}
 
 // ipfs-block-store api
 const { get, put } = blockStore({ /*cache,*/ ipfs  })
-
 ```
-More usage details in the [store tests](https://github.com/dstanesc/ipfs-block-store/blob/e5a1198cbe30d53f45f4a9f1ae663df9e4f1ed21/src/__tests__/block-store.test.ts#L12)
+
 
 ## Build
 
@@ -28,4 +34,4 @@ npm run test
 
 ## Licenses
 
-Licensed under either [Apache](./LICENSE-APACHE) or [MIT](./LICENSE-MIT) at your option.
+Licensed under either [Apache 2.0](http://opensource.org/licenses/MIT) or [MIT](http://opensource.org/licenses/MIT) at your option.
