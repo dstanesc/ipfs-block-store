@@ -15,8 +15,6 @@ const blockStore = ({ cache, ipfs }: { cache?: any, ipfs: any }) => {
             bytes = cache[cid.toString()]
         if (!bytes)
             bytes = await ipfs.block.get(cid)
-        if (!bytes)
-            throw new Error(`Block not found for ${cid.toString()}`)
         return bytes
     }
 
