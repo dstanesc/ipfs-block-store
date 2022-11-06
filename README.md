@@ -12,6 +12,9 @@ get: (cid: any) => Promise<Uint8Array>
 ## Usage
 
 ```js
+// ipfs api
+import { create as ipfsApi } from 'ipfs-http-client'
+
 // connect to a local ipfs service
 const ipfs = ipfsApi({ url: '/ip4/192.168.1.231/tcp/5001' })
 
