@@ -1,6 +1,6 @@
 # IPFS Block Store
 
-Simple content-addressable storage (CAS) based on [IPFS](https://ipfs.tech/) and powered by the `ipfs-xxx-client`.
+Simple content-addressable storage (CAS) based on [IPFS](https://ipfs.tech/) and powered by the [ipfs-client](https://www.npmjs.com/package/ipfs-client).
 
 ## API
 
