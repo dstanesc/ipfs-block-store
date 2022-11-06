@@ -1,6 +1,6 @@
 # IPFS Block Store
 
-Simple content-addressable storage (CAS) based on [IPFS](https://ipfs.tech/).
+Simple content-addressable storage (CAS) based on [IPFS](https://ipfs.tech/) and powered by the `ipfs-xxx-client`.
 
 ## API
 
@@ -12,6 +12,8 @@ get: (cid: any) => Promise<Uint8Array>
 ## Usage
 
 ```js
+import { blockStore } from '@dstanesc/ipfs-block-store'
+
 // ipfs api
 import { create as ipfsApi } from 'ipfs-http-client'
 

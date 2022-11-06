@@ -1,10 +1,10 @@
 
-const blockStore = ({ cache, ipfs }: { cache?: any, ipfs: any }) => {
+const blockStore = ({ cache, ipfs, pin = true, preload = true }: { cache?: any, ipfs: any, pin?: boolean, preload?: boolean }) => {
 
     const put = async (block: { cid: any, bytes: Uint8Array }): Promise<void> => {
         if (cache)
             cache[block.cid.toString()] = block.bytes
-        const cid = await ipfs.block.put(block.bytes, { format: 'raw', mhtype: 'sha2-256', version: 1, pin: true, preload: true })
+        const cid = await ipfs.block.put(block.bytes, { format: 'raw', mhtype: 'sha2-256', version: 1, pin, preload })
         if (cid.toString() !== block.cid.toString())
             throw new Error('Cid spec mismatch')
     }
