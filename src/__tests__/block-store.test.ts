@@ -1,5 +1,4 @@
 import { create as ipfsApi } from 'ipfs-http-client'
-import { create as ipfsApi2 } from 'ipfs-grpc-client'
 import { chunkyStore } from '@dstanesc/store-chunky-bytes'
 import { codec, chunkerFactory, byteArray, retrieve } from './util'
 import { blockStore } from '../index'

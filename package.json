@@ -1,7 +1,7 @@
 {
   "name": "@dstanesc/ipfs-block-store",
   "description": "Simple content-addressable storage (CAS) based on IPFS",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "homepage": "https://github.com/dstanesc/ipfs-block-store",
   "repository": "https://github.com/dstanesc/ipfs-block-store",
   "license": "(Apache-2.0 AND MIT)",
