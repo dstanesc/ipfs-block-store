@@ -13,7 +13,8 @@ describe('block put and get API', function () {
   test("powered by the ipfs-http-client and driven by @dstanesc/store-chunky-bytes library", async () => {
 
     // connect to local ipfs service
-    const ipfs = ipfsApi({ url: '/ip4/192.168.1.231/tcp/5001' })
+    // eg '/ip4/192.168.1.231/tcp/5001'
+    const ipfs = ipfsApi({ url: process.env.IPFS_API }) 
 
     // optional cache
     const cache = {}
