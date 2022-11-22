@@ -13,8 +13,11 @@ const blockStore = ({ cache, ipfs, pin = true, preload = true }: { cache?: any, 
         let bytes
         if (cache)
             bytes = cache[cid.toString()]
-        if (!bytes)
+        if (!bytes) {
             bytes = await ipfs.block.get(cid)
+            if (cache)
+                cache[cid.toString()] = bytes
+        }
         return bytes
     }
 
